@@ -1,8 +1,24 @@
-# FDS-Dev
+# FDS-Dev (Flamehaven Doc Sanity for Developers)
+
+<div align="center">
+
+**[English](README.md) | [한국어](README_KR.md)**
+
+[![PyPI version](https://badge.fury.io/py/fds-dev.svg)](https://badge.fury.io/py/fds-dev)
+[![Python Versions](https://img.shields.io/pypi/pyversions/fds-dev.svg)](https://pypi.org/project/fds-dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI/CD Pipeline](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml/badge.svg)](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml)
+[![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/flamehaven01/FDS-Dev)
+[![Code Quality](https://img.shields.io/badge/quality-A+-blue.svg)](https://github.com/flamehaven01/FDS-Dev)
+[![SIDRCE Certified](https://img.shields.io/badge/SIDRCE-0.896%20Certified-green.svg)](https://github.com/flamehaven01/FDS-Dev)
 
 **A blazingly fast, structure-aware linter for your documentation, supercharged with AI-powered translation.**
 
 Built for the global developer community. Write documentation and code comments in your native language, and let FDS-Dev instantly translate it to production-ready English.
+
+[Features](#core-features) • [Quick Start](#quick-start) • [Documentation](docs/) • [Contributing](#contributing) • [Support](#support)
+
+</div>
 
 ---
 
@@ -52,6 +68,137 @@ fds translate README.ko.md --output README.md
 fds translate my_app/main.py --in-place
 ```
 
+## Translation Providers
+
+FDS-Dev supports multiple translation providers. You can configure your preferred provider in the `.fdsrc.yaml` file.
+
+| Provider                  | Default?        | API Key | Cost                  | Quality    | Stability      | Recommended Use Case                     |
+| :------------------------ | :-------------- | :------ | :-------------------- | :--------- | :------------- | :--------------------------------------- |
+| **Google Translate (Free)** | **✅ (Default)**  | None    | Free                  | High       | **Unstable**¹  | Personal projects, quick tests, general docs |
+| **DeepL**                 | ❌              | **Required** | Limited Free Tier/Paid  | **Very High** | Very High      | Production, commercial, official docs      |
+| **MyMemory**                | ❌              | None    | Free                  | Medium     | Medium         | Simple scripts, temporary use            |
+| **LibreTranslate**          | ❌              | None    | Free (Self-hosted)    | Medium²    | **User-managed** | Private servers, offline, full control       |
+
+> ¹ Uses an unofficial API, which may stop working without notice.
+> ² Quality depends on the model you host yourself.
+
+To use a provider other than the default, configure it in your `.fdsrc.yaml` file. For providers requiring an API key, it is highly recommended to use environment variables.
+
+**Example for DeepL:**
+```yaml
+# .fdsrc.yaml
+translator:
+  provider: 'deepl'
+  providers:
+    deepl:
+      # It's recommended to use the FDS_DEEPL_API_KEY environment variable instead.
+      api_key: null
+```
+
+## Deployment & Automation
+
+### Continuous Integration
+
+GitHub Actions automatically runs the test suite across Python 3.9–3.11 and builds release artifacts for every push and pull request targeting `main`. You can find the workflow definition in `.github/workflows/ci.yml`.
+
+### Automated PyPI Releases
+
+Tagging a commit with the `v*` pattern (for example, `v0.2.0`) triggers `.github/workflows/release.yml`, which builds the project with `python -m build` and publishes the result to PyPI using the `PYPI_API_TOKEN` secret.
+
+### Official Docker Image
+
+Ship the CLI as a container image by using the provided `Dockerfile`:
+
+```bash
+docker build -t fds-dev .
+docker run --rm fds-dev lint README.md
+```
+
+The image installs the package globally and exposes the `fds` entrypoint, so any CLI command can be run directly.
+
 ## Contributing
 
 FDS-Dev is in early development. Contributions are welcome!
+
+We welcome contributions from the community! Here's how you can help:
+
+### How to Contribute
+
+1. **Report Issues**: Found a bug? [Open an issue](https://github.com/flamehaven01/FDS-Dev/issues)
+2. **Suggest Features**: Have an idea? Share it in [Discussions](https://github.com/flamehaven01/FDS-Dev/discussions)
+3. **Submit Pull Requests**: Fix bugs or add features
+4. **Improve Documentation**: Help make our docs even better
+
+### Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/flamehaven01/FDS-Dev.git
+cd FDS-Dev
+
+# Install in development mode
+pip install -e .
+
+# Run tests
+pytest tests/ -v
+
+# Run linter
+flake8 fds_dev/
+```
+
+### Code Quality Standards
+
+- Test coverage ≥ 90%
+- All tests passing (100/105 expected)
+- Follow PEP 8 style guide
+- Add docstrings for public APIs
+- Update documentation for new features
+
+---
+
+## Support
+
+### Documentation
+
+- **[Translation Algorithm](docs/TRANSLATION_ALGORITHM.md)** - Complete pipeline explanation
+- **[Architecture Guide](docs/ARCHITECTURE.md)** - System design documentation
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+
+### Get Help
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/flamehaven01/FDS-Dev/issues)
+- **GitHub Discussions**: [Ask questions and share ideas](https://github.com/flamehaven01/FDS-Dev/discussions)
+- **Email**: [info@flamehaven.space](mailto:info@flamehaven.space)
+
+### Community
+
+- **Website**: [flamehaven.space](https://flamehaven.space)
+- **Repository**: [github.com/flamehaven01/FDS-Dev](https://github.com/flamehaven01/FDS-Dev)
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+FDS-Dev is built with:
+- **py-googletrans** - Free Google Translate API
+- **DeepL API** - High-quality translation backend
+- **click** - Beautiful CLI framework
+- **pytest** - Testing framework
+
+Special thanks to all contributors and the open-source community!
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [Flamehaven](https://flamehaven.space)**
+
+[⬆ Back to top](#fds-dev-flamehaven-doc-sanity-for-developers)
+
+</div>

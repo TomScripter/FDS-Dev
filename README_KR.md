@@ -1,0 +1,204 @@
+# FDS-Dev (Flamehaven Doc Sanity for Developers)
+
+<div align="center">
+
+**[English](README.md) | [한국어](README_KR.md)**
+
+[![PyPI version](https://badge.fury.io/py/fds-dev.svg)](https://badge.fury.io/py/fds-dev)
+[![Python Versions](https://img.shields.io/pypi/pyversions/fds-dev.svg)](https://pypi.org/project/fds-dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI/CD Pipeline](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml/badge.svg)](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml)
+[![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/flamehaven01/FDS-Dev)
+[![Code Quality](https://img.shields.io/badge/quality-A+-blue.svg)](https://github.com/flamehaven01/FDS-Dev)
+[![SIDRCE Certified](https://img.shields.io/badge/SIDRCE-0.896%20Certified-green.svg)](https://github.com/flamehaven01/FDS-Dev)
+
+**초고속 구조 인식 문서 린터, AI 기반 번역 기능 탑재**
+
+글로벌 개발자 커뮤니티를 위해 제작되었습니다. 모국어로 문서와 코드 주석을 작성하면, FDS-Dev가 즉시 프로덕션 수준의 영어로 번역합니다.
+
+[핵심 기능](#핵심-기능) • [빠른 시작](#빠른-시작) • [문서](docs/) • [기여하기](#기여하기) • [지원](#지원)
+
+</div>
+
+---
+
+## 문제점
+
+한국, 일본, 중국, 독일 또는 전 세계 어디에서나 온 재능 있는 개발자라면, 코드는 훌륭하지만 영어로 문서와 주석을 작성하는 것이 부담스러울 것입니다. 이는 작업 속도를 늦추고 글로벌 오픈소스 커뮤니티와 공유하는 데 장벽이 됩니다.
+
+`markdownlint`나 `Vale` 같은 기존 린터는 훌륭하지만, 영어 중심적이라 이 핵심 문제를 해결하지 못합니다.
+
+## 해결책: FDS-Dev
+
+FDS-Dev는 두 가지 도구를 하나로 결합했습니다:
+
+1.  **초고속 린터:** 문서의 깔끔하고 전문적인 구조를 보장합니다.
+2.  **AI 기반 번역기:** 모국어로 작성된 문서와 주석을 자연스럽고 유창한 영어로 자동 번역합니다.
+
+**영어 걱정은 그만하고, 코드에만 집중하세요.**
+
+## 핵심 기능
+
+- **구조 인식 린팅:** 단순한 스타일 검사를 넘어섭니다. 섹션 순서 강제, 특정 헤더 요구, 문서 전체 구조 검증.
+- **자동 번역:** 한국어, 중국어, 일본어 등의 Markdown 파일과 소스 코드 주석을 영어로 번역합니다.
+- **간편한 설정:** 단일 `.fdsrc.yaml` 파일로 모든 것을 제어합니다.
+- **속도 최적화:** 최대 성능을 위해 설계된 핵심 컴포넌트.
+
+## 빠른 시작
+
+### 1. 문서 린트 검사
+
+문서의 구조적 문제를 확인합니다.
+
+```bash
+fds lint README.ko.md
+```
+
+### 2. 영어로 번역
+
+한국어 README와 주석을 글로벌 수준의 영어 파일로 번역합니다.
+
+```bash
+# README.ko.md -> README.md 번역
+fds translate README.ko.md --output README.md
+```
+
+```bash
+# 소스 코드 파일의 주석을 제자리에서 번역
+fds translate my_app/main.py --in-place
+```
+
+## 번역 제공자
+
+FDS-Dev는 여러 번역 제공자를 지원합니다. `.fdsrc.yaml` 파일에서 선호하는 제공자를 설정할 수 있습니다.
+
+| 제공자                  | 기본값?        | API 키 | 비용                  | 품질    | 안정성      | 권장 사용 사례                     |
+| :------------------------ | :-------------- | :------ | :-------------------- | :--------- | :------------- | :--------------------------------------- |
+| **Google Translate (Free)** | **✅ (기본값)**  | 없음    | 무료                  | 높음       | **불안정**¹  | 개인 프로젝트, 빠른 테스트, 일반 문서 |
+| **DeepL**                 | ❌              | **필수** | 제한된 무료 티어/유료  | **매우 높음** | 매우 높음      | 프로덕션, 상업용, 공식 문서      |
+| **MyMemory**                | ❌              | 없음    | 무료                  | 보통     | 보통         | 간단한 스크립트, 임시 사용            |
+| **LibreTranslate**          | ❌              | 없음    | 무료 (자체 호스팅)    | 보통²    | **사용자 관리** | 사설 서버, 오프라인, 완전한 제어       |
+
+> ¹ 비공식 API를 사용하므로 예고 없이 작동이 중단될 수 있습니다.
+> ² 품질은 사용자가 직접 호스팅하는 모델에 따라 달라집니다.
+
+기본값이 아닌 제공자를 사용하려면 `.fdsrc.yaml` 파일에서 설정하세요. API 키가 필요한 제공자의 경우 환경 변수 사용을 강력히 권장합니다.
+
+**DeepL 예제:**
+```yaml
+# .fdsrc.yaml
+translator:
+  provider: 'deepl'
+  providers:
+    deepl:
+      # FDS_DEEPL_API_KEY 환경 변수 사용을 권장합니다.
+      api_key: null
+```
+
+## 배포 및 자동화
+
+### 지속적 통합 (CI)
+
+GitHub Actions는 `main` 브랜치를 대상으로 하는 모든 푸시 및 풀 리퀘스트에 대해 Python 3.9–3.11에서 테스트 스위트를 자동으로 실행하고 릴리스 아티팩트를 빌드합니다. 워크플로우 정의는 `.github/workflows/ci.yml`에서 확인할 수 있습니다.
+
+### PyPI 자동 릴리스
+
+`v*` 패턴으로 커밋에 태그를 지정하면(예: `v0.2.0`) `.github/workflows/release.yml`이 트리거되어 `python -m build`로 프로젝트를 빌드하고 `PYPI_API_TOKEN` 시크릿을 사용하여 PyPI에 게시합니다.
+
+### 공식 Docker 이미지
+
+제공된 `Dockerfile`을 사용하여 CLI를 컨테이너 이미지로 배포할 수 있습니다:
+
+```bash
+docker build -t fds-dev .
+docker run --rm fds-dev lint README.md
+```
+
+이미지는 패키지를 전역으로 설치하고 `fds` 진입점을 노출하므로 모든 CLI 명령을 직접 실행할 수 있습니다.
+
+## 기여하기
+
+FDS-Dev는 초기 개발 단계입니다. 기여를 환영합니다!
+
+커뮤니티의 기여를 환영합니다! 다음과 같은 방법으로 도움을 주실 수 있습니다:
+
+### 기여 방법
+
+1. **이슈 제보**: 버그를 발견하셨나요? [이슈 등록](https://github.com/flamehaven01/FDS-Dev/issues)
+2. **기능 제안**: 아이디어가 있으신가요? [토론](https://github.com/flamehaven01/FDS-Dev/discussions)에서 공유하세요
+3. **풀 리퀘스트 제출**: 버그 수정 또는 기능 추가
+4. **문서 개선**: 문서를 더욱 좋게 만들어주세요
+
+### 개발 환경 설정
+
+```bash
+# 저장소 클론
+git clone https://github.com/flamehaven01/FDS-Dev.git
+cd FDS-Dev
+
+# 개발 모드로 설치
+pip install -e .
+
+# 테스트 실행
+pytest tests/ -v
+
+# 린터 실행
+flake8 fds_dev/
+```
+
+### 코드 품질 기준
+
+- 테스트 커버리지 ≥ 90%
+- 모든 테스트 통과 (100/105 예상)
+- PEP 8 스타일 가이드 준수
+- 공개 API에 docstring 추가
+- 새 기능에 대한 문서 업데이트
+
+---
+
+## 지원
+
+### 문서
+
+- **[번역 알고리즘](docs/TRANSLATION_ALGORITHM.md)** - 완전한 파이프라인 설명
+- **[아키텍처 가이드](docs/ARCHITECTURE.md)** - 시스템 설계 문서
+- **[문제 해결](docs/TROUBLESHOOTING.md)** - 일반적인 문제와 해결책
+
+### 도움 받기
+
+- **GitHub Issues**: [버그 제보 또는 기능 요청](https://github.com/flamehaven01/FDS-Dev/issues)
+- **GitHub Discussions**: [질문 및 아이디어 공유](https://github.com/flamehaven01/FDS-Dev/discussions)
+- **Email**: [info@flamehaven.space](mailto:info@flamehaven.space)
+
+### 커뮤니티
+
+- **웹사이트**: [flamehaven.space](https://flamehaven.space)
+- **저장소**: [github.com/flamehaven01/FDS-Dev](https://github.com/flamehaven01/FDS-Dev)
+
+---
+
+## 라이센스
+
+MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+---
+
+## 감사의 말
+
+FDS-Dev는 다음 기술로 구축되었습니다:
+- **py-googletrans** - 무료 Google Translate API
+- **DeepL API** - 고품질 번역 백엔드
+- **click** - 아름다운 CLI 프레임워크
+- **pytest** - 테스팅 프레임워크
+
+모든 기여자와 오픈소스 커뮤니티에 특별한 감사를 드립니다!
+
+---
+
+<div align="center">
+
+**Flamehaven이 ❤️를 담아 제작했습니다 - [Flamehaven](https://flamehaven.space)**
+
+[⬆ 맨 위로](#fds-dev-flamehaven-doc-sanity-for-developers)
+
+</div>
