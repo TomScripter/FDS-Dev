@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from typing import List, Optional
 
 from fds_dev.parser import Document
@@ -78,8 +79,9 @@ class SectionOrder(BaseRule):
                 if current_index != -1:
                     if current_index < last_found_index:
                         expected_section = expected_order[last_found_index]
+                        line_number = max(1, header.line_number - 1)
                         errors.append(LintError(
-                            line_number=header.line_number,
+                            line_number=line_number,
                             message=f"Section '{header.text}' appears out of order. It should not come before '{expected_section}'.",
                             rule_name=self.name
                         ))

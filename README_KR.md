@@ -46,6 +46,11 @@ FDS-Dev는 두 가지 도구를 하나로 결합했습니다:
 
 ## 빠른 시작
 
+```bash
+pip install --upgrade fds-dev
+fds --help
+```
+
 ### 1. 문서 린트 검사
 
 문서의 구조적 문제를 확인합니다.
@@ -119,6 +124,8 @@ docker run --rm fds-dev lint README.md
 ## 기여하기
 
 FDS-Dev는 초기 개발 단계입니다. 기여를 환영합니다!
+
+전체 기여 체크리스트와 릴리스 워크플로는 [CONTRIBUTING.md](CONTRIBUTING.md)에서 확인하세요.
 
 커뮤니티의 기여를 환영합니다! 다음과 같은 방법으로 도움을 주실 수 있습니다:
 

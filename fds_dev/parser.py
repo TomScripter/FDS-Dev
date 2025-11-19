@@ -17,6 +17,8 @@ class Document:
 
     def __post_init__(self):
         self.lines = self.content.splitlines()
+        if self.content == "":
+            self.lines = [""]
 
 class MarkdownParser:
     """
@@ -24,7 +26,7 @@ class MarkdownParser:
     """
     def __init__(self):
         # Regex to find ATX-style headers (#, ##, etc.)
-        self.header_regex = re.compile(r"^(#{1,6})\s+(.*)")
+        self.header_regex = re.compile(r"^\s*(#{1,6})\s+(.*)")
 
     def parse(self, file_path: str) -> Document:
         """

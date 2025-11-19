@@ -46,6 +46,11 @@ FDS-Dev is two tools in one:
 
 ## Quick Start
 
+```bash
+pip install --upgrade fds-dev
+fds --help
+```
+
 ### 1. Lint your documentation
 
 Check for structural issues in your documentation.
@@ -119,6 +124,8 @@ The image installs the package globally and exposes the `fds` entrypoint, so any
 ## Contributing
 
 FDS-Dev is in early development. Contributions are welcome!
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the detailed workflow, release checklist, and ASCII compatibility notes.
 
 We welcome contributions from the community! Here's how you can help:
 
