@@ -12,7 +12,7 @@
 [![Code Quality](https://img.shields.io/badge/quality-A+-blue.svg)](https://github.com/flamehaven01/FDS-Dev)
 [![SIDRCE Certified](https://img.shields.io/badge/SIDRCE-0.896%20Certified-green.svg)](https://github.com/flamehaven01/FDS-Dev)
 
-**A blazingly fast, structure-aware linter for your documentation, supercharged with AI-powered translation.**
+<h3 align="center">A blazingly fast, structure-aware linter for your documentation, supercharged with AI-powered translation.</h3>
 
 Built for the global developer community. Write documentation and code comments in your native language, and let FDS-Dev instantly translate it to production-ready English.
 
