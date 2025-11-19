@@ -37,6 +37,36 @@ FDS-Dev is two tools in one:
 
 **Stop worrying about English. Focus on your code.**
 
+## Why FDS-Dev
+
+### A New Category: Code-Level Internationalization
+
+Traditional linters (markdownlint, Vale) only validate formatting, and conventional translators mangle code blocks or technical terms. FDS-Dev instead treats documentation, code comments, and docstrings as first-class data structures, so non-English-speaking developers can participate in global OSS without rewriting everything in English by hand.
+
+### Problems We Actually Solve
+
+- **Language barrier**: Converts README files, architecture notes, inline comments, and docstrings into production English while protecting the original code structure.
+- **Documentation integrity**: Enforces section ordering, required headers, and other structure rules, so every README has the same professional baseline.
+
+### Unique Advantages
+
+1. **AI-driven code-aware translation**
+   - Parses Markdown, Python docstrings, and inline comments via `CodeCommentParser`, so translations respect code layout and skip code blocks entirely.
+   - Preserves CamelCase, snake_case, and other identifiers through `TechnicalTermDatabase`, keeping API names intact.
+   - Scores every translation with an Omega (Ω) quality tensor; low-scoring translations can be retried or rejected automatically.
+
+2. **Blazingly fast, structure-aware linting**
+   - Runs lint jobs in parallel using a persistent cache (`.fds_cache.json`) so large doc trees finish quickly.
+   - Validates structural requirements such as “License section must exist” or “Installation must precede Usage,” not just spelling.
+
+3. **Flexible translation backends**
+   - Default py-googletrans backend works with zero configuration for quick trials.
+   - Switch to DeepL, MyMemory, or LibreTranslate in `.fdsrc.yaml` for higher quality or self-hosted control.
+
+4. **Community impact**
+   - Enables non-English-speaking developers to ship English documentation without losing intent, making it easier to get PRs accepted or run international product launches.
+   - Actively-developed roadmap welcomes new contributors; stars, issues, and PRs help define the next wave of code-level localization tooling.
+
 ## Core Features
 
 - **Structure-Aware Linting:** Go beyond simple style checks. Enforce section order, require specific headers, and validate the overall structure of your documents.

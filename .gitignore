@@ -126,3 +126,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Internal documentation not for distribution
+DOCUMENTATION_COMPLETE.md
+FIX_SUMMARY.md
+PROJECT_COMPLETION_REPORT.md
+README_UPDATE_SUMMARY.md
+test_ko.md
