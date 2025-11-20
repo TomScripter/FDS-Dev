@@ -133,3 +133,9 @@ FIX_SUMMARY.md
 PROJECT_COMPLETION_REPORT.md
 README_UPDATE_SUMMARY.md
 test_ko.md
+
+# Security scanning baseline
+# .secrets.baseline
+
+# Pre-commit
+.pre-commit-config.yaml.bak
