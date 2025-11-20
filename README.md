@@ -78,31 +78,42 @@ Traditional linters (markdownlint, Vale) only validate formatting, and conventio
 ## Quick Start
 
 ```bash
+# Install
 pip install --upgrade fds-dev
-fds --help
+
+# Initialize configuration
+fds init
+
+# Run your first lint
+fds lint README.md
 ```
 
-### 1. Lint your documentation
+### [>] 10-Minute Quickstart
 
-Check for structural issues in your documentation.
-
+**1. Lint your documentation** - Check for structural issues
 ```bash
 fds lint README.ko.md
 ```
 
-### 2. Translate to English
-
-Translate your Korean README and its comments into a new, global-ready English file.
-
+**2. Translate to English** - Global-ready documentation instantly
 ```bash
 # Translates README.ko.md -> README.md
 fds translate README.ko.md --output README.md
-```
 
-```bash
-# Translate a source code file's comments in-place
+# Translate source code comments in-place
 fds translate my_app/main.py --in-place
 ```
+
+**3. See working examples**
+```bash
+# Clone repo and try examples
+git clone https://github.com/flamehaven01/FDS-Dev.git
+cd FDS-Dev
+pip install -e .
+python examples/basic_usage.py
+```
+
+[+] **Next Steps**: See [`examples/`](examples/) for production patterns and [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md) for team deployments.
 
 ## CLI Commands
 
@@ -202,6 +213,19 @@ flake8 fds_dev/
 
 ---
 
+## For Teams & Enterprises
+
+FDS-Dev scales from individual developers to enterprise deployments:
+
+- [#] **Self-Hosted** - Full data control, air-gapped operation
+- [#] **CI/CD Integration** - GitHub Actions, GitLab CI, Jenkins ready
+- [&] **Custom Deployments** - Docker, Kubernetes, monorepo support
+- [W] **SLA & Support** - Enterprise agreements available
+
+[>] **Learn More**: See [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md) for deployment architectures, security controls, and team workflows.
+
+---
+
 ## Support
 
 ### Documentation
@@ -229,13 +253,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## About Flamehaven × FDS-Dev
-
-**English**: FDS-Dev is Flamehaven’s code-level internationalization platform that lets non-English-speaking developers lint, translate, and publish documentation without breaking code structure. We guard identifiers, score translations with an Omega tensor, and ship blazing-fast structural linting so every README feels professional. Stars, issues, and pull requests directly shape the future of multilingual development workflows—join us to expand global open source collaboration.
-
-**한국어**: FDS-Dev는 Flamehaven이 만든 코드 레벨 국제화 플랫폼으로, 영어가 익숙하지 않은 개발자가 문서 구조를 지키면서 번역하고 린트하도록 돕습니다. 기술 용어를 보존하고 Omega 품질 점수로 번역을 검증하며, 초고속 구조 린팅으로 모든 README가 전문성을 갖추도록 이끕니다. 여러분의 Star, Issue, PR 하나하나가 다국어 개발 워크플로를 완성하는 여정에 직접적인 힘이 됩니다. 함께 글로벌 오픈소스 생태계를 넓혀 주세요.
-
----
 
 <div align="center">
 

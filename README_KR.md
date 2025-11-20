@@ -78,26 +78,42 @@ FDS-Dev는 두 가지 도구를 하나로 결합했습니다:
 ## 빠른 시작
 
 ```bash
+# 설치
 pip install --upgrade fds-dev
-fds --help
+
+# 설정 초기화
+fds init
+
+# 첫 린트 실행
+fds lint README.md
 ```
 
-### 1. 문서 린트 검사
+### [>] 10분 빠른 시작 가이드
 
-문서의 구조적 문제를 확인합니다.
-
+**1. 문서 린트 검사** - 구조적 문제 확인
 ```bash
 fds lint README.ko.md
 ```
 
-### 2. 영어로 번역
-
-한국어 README와 주석을 글로벌 수준의 영어 파일로 번역합니다.
-
+**2. 영어로 번역** - 글로벌 수준의 문서를 즉시 생성
 ```bash
 # README.ko.md -> README.md 번역
 fds translate README.ko.md --output README.md
+
+# 소스 코드 주석을 제자리에서 번역
+fds translate my_app/main.py --in-place
 ```
+
+**3. 실행 가능한 예제 확인**
+```bash
+# 리포지토리를 클론하고 예제 실행
+git clone https://github.com/flamehaven01/FDS-Dev.git
+cd FDS-Dev
+pip install -e .
+python examples/basic_usage.py
+```
+
+[+] **다음 단계**: 프로덕션 패턴은 [`examples/`](examples/)를, 팀 배포는 [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md)를 참조하세요.
 
 ```bash
 # 소스 코드 파일의 주석을 제자리에서 번역
@@ -199,6 +215,19 @@ flake8 fds_dev/
 - PEP 8 스타일 가이드 준수
 - 공개 API에 docstring 추가
 - 새 기능에 대한 문서 업데이트
+
+---
+
+## 팀 및 엔터프라이즈
+
+FDS-Dev는 개인 개발자부터 엔터프라이즈 배포까지 확장 가능합니다:
+
+- [#] **자체 호스팅** - 완전한 데이터 제어, 에어갭 환경 지원
+- [#] **CI/CD 통합** - GitHub Actions, GitLab CI, Jenkins 즉시 사용 가능
+- [&] **커스텀 배포** - Docker, Kubernetes, 모노레포 지원
+- [W] **SLA 및 지원** - 엔터프라이즈 계약 가능
+
+[>] **자세히 보기**: 배포 아키텍처, 보안 제어, 팀 워크플로우는 [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md)를 참조하세요.
 
 ---
 
