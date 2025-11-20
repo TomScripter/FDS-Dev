@@ -36,7 +36,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest tests/ -v --cov=fds_dev --cov-report=xml --cov-report=term
+        pytest tests/ -v --cov=fds_dev --cov-report=xml --cov-report=term --cov-fail-under=70
 
     - name: Upload coverage to Codecov
       if: matrix.python-version == '3.11'
@@ -46,6 +46,12 @@ jobs:
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: false
+    
+    - name: Type checking with mypy
+      if: matrix.python-version == '3.11'
+      run: |
+        pip install mypy types-requests types-PyYAML
+        mypy fds_dev/ --ignore-missing-imports --strict --show-error-codes || echo "[!] Type checking found issues (non-blocking)"
 
   build:
     name: Build package
