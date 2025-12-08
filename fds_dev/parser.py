@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 from dataclasses import dataclass, field
 import re
 from typing import List
@@ -42,9 +44,9 @@ class MarkdownParser:
         """
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
         doc = Document(path=file_path, content=content)
-        
+
         for i, line in enumerate(doc.lines):
             header_match = self.header_regex.match(line)
             if header_match:
@@ -53,7 +55,7 @@ class MarkdownParser:
                 doc.headers.append(Header(level=level, text=text, line_number=i + 1))
 
         doc.links = self._extract_links(doc.lines)
-        
+
         return doc
 
     def _extract_links(self, lines: List[str]) -> List[Link]:
@@ -85,4 +87,3 @@ if __name__ == '__main__':
             print(f"  - L{header.line_number}: {'  ' * (header.level - 1)}[{header.level}] {header.text}")
     except FileNotFoundError:
         print("README.md not found. Create one to test the parser.")
-

@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 import re
@@ -48,11 +50,11 @@ class RequireSectionLicense(BaseRule):
             if "license" in header.text.lower():
                 found_license = True
                 break
-        
+
         if not found_license:
             # Report error at line 1 if the section is missing entirely.
             return [LintError(line_number=1, message="Document is missing a 'License' section.", rule_name=self.name)]
-        
+
         return []
 
 class SectionOrder(BaseRule):
@@ -69,9 +71,9 @@ class SectionOrder(BaseRule):
 
         # Get only top-level (h1 or h2) headers from the document
         top_level_headers = [h for h in doc.headers if h.level <= 2]
-        
+
         last_found_index = -1
-        
+
         for header in top_level_headers:
             try:
                 # Find the current header's text in the expected order list
@@ -95,7 +97,7 @@ class SectionOrder(BaseRule):
             except ValueError:
                 # This header is not in our defined order, so we ignore it.
                 pass
-        
+
         return errors
 
 class BrokenLinkCheckRule(BaseRule):

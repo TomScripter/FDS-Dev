@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 from .code_comment_parser import CodeCommentParser, CommentNode, ParsedCodeFile
 from .language import LanguageDetectionResult, LanguageDetector
 from .translation import TechnicalTermDatabase, TranslationEngine, TranslationResult

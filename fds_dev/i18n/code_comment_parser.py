@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 from __future__ import annotations
 
 import ast
@@ -243,8 +245,7 @@ class CodeCommentParser:
         line_offsets: List[int],
         text: str,
     ) -> CommentNode:
-        if end_idx < start_idx:
-            end_idx = start_idx
+        end_idx = max(end_idx, start_idx)
         start_offset = line_offsets[start_idx]
         end_offset = line_offsets[end_idx] + len(block[-1])
         fragment = text[start_offset:end_offset]

@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 import hashlib
 import yaml
 from typing import List, Dict, Any, Tuple, Optional
@@ -32,7 +34,7 @@ class LintRunner:
     def _initialize_rules(self) -> List[BaseRule]:
         initialized_rules = []
         rules_config = self.config.get('rules', {})
-        
+
         for name, config_value in rules_config.items():
             if name not in AVAILABLE_RULES:
                 continue
@@ -61,7 +63,7 @@ class LintRunner:
         """
         try:
             file_hash = _get_file_hash(file_path)
-            
+
             # Check cache
             if file_path in cache and cache[file_path].get('hash') == file_hash:
                 # Return cached errors, converting them back to LintError objects
@@ -72,13 +74,13 @@ class LintRunner:
             # If not in cache or hash mismatch, run linting
             all_errors: List[LintError] = []
             document = self.parser.parse(file_path)
-            
+
             for rule in self.rules:
                 errors = rule.apply(document)
                 all_errors.extend(errors)
-            
+
             return file_path, file_hash, all_errors
-                
+
         except FileNotFoundError:
             return file_path, None, [LintError(line_number=0, message=f"File not found: {file_path}", rule_name="runner")]
         except Exception as e:

@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.4] - 2025-12-08
+
+### Changed
+- Config resolution now starts from the lint/translate target path, so per-folder `.fdsrc.yaml` files are honored without changing the current working directory.
+- Translation command uses detected language objects safely, preventing crashes when `language: auto` is enabled.
+- DeepL provider applies a 5s default timeout and clearer API error messages to avoid CLI hangs during network issues.
+- Normalized line endings and trimmed trailing whitespace across `fds_dev` modules; added minimal module docstrings for tooling compatibility.
+- Added project `.pylintrc` tuned to existing Black/Ruff style to reduce lint noise while keeping structural checks in CI.
+
+### Testing
+- `python -m pytest tests` (110 passed)
+- `python -m pylint fds_dev` (10.00/10 with project config)
+
 ## [0.0.3] - 2025-11-20
 
 ### Added

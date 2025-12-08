@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 import os
 import yaml
 from typing import Dict, Any
@@ -16,37 +18,41 @@ DEFAULT_CONFIG = {
 def find_config_file(path: str = '.') -> str:
     """
     Finds the .fdsrc.yaml file in the given path or its parent directories.
+    Starts from the directory of the provided path (file or folder).
     """
-    current_dir = os.path.abspath(path)
+    start_dir = path
+    if not os.path.isdir(path):
+        start_dir = os.path.dirname(os.path.abspath(path)) or os.path.abspath('.')
+    current_dir = os.path.abspath(start_dir)
+
     while True:
         config_path = os.path.join(current_dir, '.fdsrc.yaml')
         if os.path.exists(config_path):
             return config_path
-        
+
         parent_dir = os.path.dirname(current_dir)
-        if parent_dir == current_dir: # Reached the root directory
+        if parent_dir == current_dir:  # Reached the root directory
             return None
         current_dir = parent_dir
 
-def load_config() -> Dict[str, Any]:
+def load_config(start_path: str = '.') -> Dict[str, Any]:
     """
     Loads the configuration from .fdsrc.yaml.
-    Starts searching from the current working directory upwards.
+    Starts searching from the provided path (file or directory) upwards.
     Returns default config if not found.
     """
-    config_path = find_config_file()
+    config_path = find_config_file(start_path)
     if config_path:
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
-                user_config = yaml.safe_load(f)
-                # Simple merge with default config
+                user_config = yaml.safe_load(f) or {}
                 config = DEFAULT_CONFIG.copy()
                 config.update(user_config)
                 return config
         except Exception as e:
             print(f"Error loading config file '{config_path}': {e}")
             return DEFAULT_CONFIG
-    
+
     return DEFAULT_CONFIG
 
 if __name__ == '__main__':
@@ -64,5 +70,5 @@ rules:
     config = load_config()
     print("Loaded configuration:")
     print(yaml.dump(config, default_flow_style=False))
-    
+
     os.remove('.fdsrc.yaml') # Clean up the dummy file

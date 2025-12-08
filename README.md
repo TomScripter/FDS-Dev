@@ -115,6 +115,11 @@ python examples/basic_usage.py
 
 [+] **Next Steps**: See [`examples/`](examples/) for production patterns and [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md) for team deployments.
 
+### Config and cache resolution
+- `.fdsrc.yaml` is discovered starting from the path you pass to `fds lint` or `fds translate`, then walking upward. Each docs subtree can keep its own rules without changing your shell directory.
+- The lint cache (`.fds_cache.json`) is stored alongside the target path (directory or file), keeping caches scoped to each docs tree.
+- `translate` reports detected language with confidence and safely skips work when source and target languages already match.
+
 ## CLI Commands
 
 - `fds lint <path>`: Runs the structure-aware lint checks configured in `.fdsrc.yaml`, including optional rules such as `broken-link-check`.
@@ -139,6 +144,8 @@ FDS-Dev supports multiple translation providers. You can configure your preferre
 
 To use a provider other than the default, configure it in your `.fdsrc.yaml` file. For providers requiring an API key, it is highly recommended to use environment variables.
 
+DeepL calls use a 5 second default timeout to avoid CLI hangs when the service is slow; override with `translator.providers.deepl.timeout`.
+
 **Example for DeepL:**
 ```yaml
 # .fdsrc.yaml
@@ -148,6 +155,7 @@ translator:
     deepl:
       # It's recommended to use the FDS_DEEPL_API_KEY environment variable instead.
       api_key: null
+      timeout: 5   # seconds
 ```
 
 ## Deployment & Automation
