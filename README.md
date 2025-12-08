@@ -2,6 +2,10 @@
 
 <div align="center">
 
+<p align="center">
+  <img src="docs/Doc Sanity Logo.png" alt="FDS-Dev Logo" width="420">
+</p>
+
 **[English](README.md) | [한국어](README_KR.md)**
 
 [![PyPI version](https://badge.fury.io/py/fds-dev.svg)](https://badge.fury.io/py/fds-dev)
@@ -269,3 +273,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 [⬆ Back to top](#fds-dev-flamehaven-doc-sanity-for-developers)
 
 </div>
+
