@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 import requests
 from abc import ABC, abstractmethod
 from typing import Dict
@@ -20,9 +22,10 @@ class DeepLTranslator(BaseTranslator):
     A translator using the DeepL API.
     Requires an API key to be set in the config.
     """
-    def __init__(self, api_key: str, is_free_api: bool = True):
+    def __init__(self, api_key: str, is_free_api: bool = True, timeout: float = 5.0):
         self.api_key = api_key
         self.api_url = "https://api-free.deepl.com/v2/translate" if is_free_api else "https://api.deepl.com/v2/translate"
+        self.timeout = timeout
 
     def translate(self, text: str, source_lang: str, target_lang: str) -> str:
         if not self.api_key:
@@ -36,13 +39,13 @@ class DeepLTranslator(BaseTranslator):
         }
 
         try:
-            response = requests.post(self.api_url, data=payload)
+            response = requests.post(self.api_url, data=payload, timeout=self.timeout)
             response.raise_for_status()
             result = response.json()
             return result['translations'][0]['text']
         except requests.exceptions.RequestException as e:
             print(f"Error calling DeepL API: {e}")
-            return f"[API Error] {text}"
+            return f"[API Error: {e}] {text}"
         except (KeyError, IndexError):
             print(f"Error parsing DeepL API response: {response.text}")
             return f"[API Error] {text}"
@@ -64,8 +67,9 @@ class TranslationEngine:
                 print("Warning: DeepL provider selected but no api_key found in config. Falling back to echo.")
                 return EchoTranslator()
             is_free = self.config.get('free_api', True)
-            return DeepLTranslator(api_key=api_key, is_free_api=is_free)
-        
+            timeout = float(self.config.get('timeout', 5.0))
+            return DeepLTranslator(api_key=api_key, is_free_api=is_free, timeout=timeout)
+
         # Default to echo translator
         return EchoTranslator()
 
@@ -78,10 +82,10 @@ if __name__ == '__main__':
     dummy_config = {
         'translator': {
             'provider': 'echo' # or 'deepl', if you have an API key
-            # 'api_key': 'YOUR_DEEPL_API_KEY_HERE' 
+            # 'api_key': 'YOUR_DEEPL_API_KEY_HERE'
         }
     }
-    
+
     engine = TranslationEngine(dummy_config)
     translated_text = engine.translate("안녕하세요, 세상!", source_lang="ko", target_lang="en")
     print(f"Translation result: {translated_text}")

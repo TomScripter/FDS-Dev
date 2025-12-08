@@ -120,6 +120,11 @@ python examples/basic_usage.py
 fds translate my_app/main.py --in-place
 ```
 
+### 설정 및 캐시 처리
+- `fds lint`/`fds translate`에 넘긴 경로를 시작점으로 `.fdsrc.yaml`을 탐색합니다. 각 문서 트리마다 별도 규칙을 둘 수 있으며, 작업 디렉터리를 옮길 필요가 없습니다.
+- 린트 캐시(`.fds_cache.json`)는 대상 경로나 파일과 같은 위치에 저장되어 트리별로 스코프가 분리됩니다.
+- `translate`는 자동 언어 감지 시 신뢰도( confidence )를 출력하고, 소스/타깃 언어가 같으면 안전하게 건너뜁니다.
+
 ## CLI 명령어
 
 - `fds lint <path>`: `.fdsrc.yaml`에 정의된 구조 린팅 규칙(옵션으로 `broken-link-check` 포함)을 실행합니다.
@@ -153,6 +158,7 @@ translator:
     deepl:
       # FDS_DEEPL_API_KEY 환경 변수 사용을 권장합니다.
       api_key: null
+      timeout: 5   # 초 단위 기본 타임아웃 (서비스 지연 시 CLI 멈춤 방지)
 ```
 
 ## 배포 및 자동화

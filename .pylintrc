@@ -1,0 +1,12 @@
+[MASTER]
+init-hook = import sys, os; sys.path.insert(0, os.path.abspath("."))
+ignore-patterns = tests
+
+[FORMAT]
+max-line-length = 100
+
+[MESSAGES CONTROL]
+disable = missing-module-docstring,missing-class-docstring,missing-function-docstring,too-few-public-methods,invalid-name,line-too-long,wrong-import-order,broad-exception-caught,redefined-outer-name,unused-argument,unused-import,too-many-instance-attributes,too-many-arguments,too-many-positional-arguments,too-many-locals,unnecessary-pass,disallowed-name
+
+[TYPECHECK]
+ignored-modules = click,requests,yaml

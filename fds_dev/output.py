@@ -1,3 +1,5 @@
+"""FDS-Dev module."""
+
 import click
 from typing import List, Tuple
 
@@ -10,14 +12,14 @@ class OutputFormatter:
         """
         total_errors = 0
         files_with_errors = 0
-        
+
         for file_path, errors in results:
             if errors:
                 files_with_errors += 1
                 error_count = len(errors)
                 total_errors += error_count
                 plural = 's' if error_count > 1 else ''
-                
+
                 click.secho(f"\n❌ Found {error_count} issue{plural} in {file_path}:")
                 for error in sorted(errors, key=lambda e: e.line_number):
                     line_info = f"L{error.line_number:<4}"
