@@ -19,10 +19,10 @@
 </div>
 
 <h3>
-[>] Build once, speak every language.<br/>
-[*] Enforce doc structure while AI translates without breaking code.<br/>
-[=] Keep identifiers and code blocks pristine; localize only the prose.<br/>
-[+] Ship production-ready English docs in seconds, not hours.
+[>] Ship docs that read native-English without writing in English.<br/>
+[*] Enforce structure, anchors, and links while AI translates safely.<br/>
+[=] Protect identifiers and code blocks—only the prose changes.<br/>
+[+] Go from native-language drafts to release-ready docs in minutes, not days.
 </h3>
 
 <div align="center">
