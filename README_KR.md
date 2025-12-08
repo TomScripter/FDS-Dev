@@ -16,12 +16,17 @@
 [![Code Quality](https://img.shields.io/badge/quality-A+-blue.svg)](https://github.com/flamehaven01/FDS-Dev)
 [![SIDRCE Certified](https://img.shields.io/badge/SIDRCE-0.896%20Certified-green.svg)](https://github.com/flamehaven01/FDS-Dev)
 
-**초고속 구조 인식 문서 린터, AI 기반 번역 기능 탑재**
+</div>
 
-글로벌 개발자 커뮤니티를 위해 제작되었습니다. 모국어로 문서와 코드 주석을 작성하면, FDS-Dev가 즉시 프로덕션 수준의 영어로 번역합니다.
+<h3>
+[>] 영어를 쓰지 않고도 원어민급 문서를 출하하세요.<br/>
+[*] 구조·앵커·링크를 지키며 AI 번역을 안전하게 적용합니다.<br/>
+[=] 식별자와 코드 블록은 그대로, 서술만 현지화합니다.<br/>
+[+] 초안에서 릴리스급 영어 문서까지 몇 분이면 충분합니다.
+</h3>
 
-[핵심 기능](#핵심-기능) • [빠른 시작](#빠른-시작) • [문서](docs/) • [기여하기](#기여하기) • [지원](#지원)
-
+<div align="center">
+<a href="#핵심-기능">핵심 기능</a> · <a href="#빠른-시작">빠른 시작</a> · <a href="docs/">문서</a> · <a href="#기여하기">기여하기</a> · <a href="#지원">지원</a>
 </div>
 
 ---
