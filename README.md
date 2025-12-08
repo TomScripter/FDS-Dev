@@ -18,8 +18,8 @@
 
 </div>
 
-<h3>🔺A blazingly fast, structure-aware linter for your documentation, supercharged with AI-powered translation.
-</br>🔺Built for the global developer community. Write documentation and code comments in your native language, and let FDS-Dev instantly translate it to production-ready English.</h3>
+<h3>🔺Built for the global developer community.</br>🔺A blazingly fast, structure-aware linter for your documentation, supercharged with AI-powered translation.
+ </br>🔺Write documentation and code comments in your native language, and let FDS-Dev instantly translate it to production-ready English.</h3>
 
 <div align="center">[Features](#core-features) • [Quick Start](#quick-start) • [Documentation](docs/) • [Contributing](#contributing) • [Support](#support)</div>
 
@@ -275,6 +275,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 [⬆ Back to top](#fds-dev-flamehaven-doc-sanity-for-developers)
 
 </div>
+
 
 
 
